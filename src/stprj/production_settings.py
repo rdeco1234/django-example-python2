@@ -21,7 +21,7 @@ DATABASES = {
 }
 
 INSTALLED_APPS = (
-	'app',
+#	'app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -33,4 +33,5 @@ INSTALLED_APPS = (
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/rdeco/www/rdeco.sakura.ne.jp/htdocs/static'
 
-TEMPLAETE_DIR = '/home/rdeco/www/rdeco.sakura.ne.jp/htdocs/rdeco_hp'
+#TEMPLAETE_DIR = '/home/rdeco/www/rdeco.sakura.ne.jp/htdocs/rdeco_hp'
+TEMPLAETE_DIR = '/home/rdeco/www/rdeco.sakura.ne.jp/django-example-python2/src/app/template'

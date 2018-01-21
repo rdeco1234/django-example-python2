@@ -1,7 +1,7 @@
 from django.conf.urls import include, url
+from app.views import contact
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^admin/$', include(admin.site.urls)),
-    url(r'^app/$', include('app.urls')),
+    url(r'^mail/', contact),
 ]
