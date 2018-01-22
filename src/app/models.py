@@ -14,3 +14,11 @@ class Contact(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class Person(models.Model):
+	name = models.CharField(max_length=255)
+	age = models.IntegerField(default=25)
+
+class MyModel(models.Model):
+	name = models.CharField(max_length=255)
+	age = models.IntegerField(default=25)
