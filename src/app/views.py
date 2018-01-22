@@ -7,6 +7,7 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from app.forms import MyForm
 from app.forms import PersonForm
+from app.forms import SampleForm
 from django.views.generic import CreateView, UpdateView
 from app.models import Person
 
@@ -39,3 +40,9 @@ class PersonCreateView(CreateView):
 	model = Person
 	form_class = PersonForm
 	template_name = 'form.html'
+
+def hello_forms2(request):
+    d = {
+        'form': forms.SampleForm(),
+    }
+    return render(request, 'form_samples.html', d)
