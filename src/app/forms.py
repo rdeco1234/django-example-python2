@@ -37,7 +37,7 @@ GENDER_CHOICES = (
 )
 
 FOOD_CHOICES = (
-    ('apple', 'apple'),
+    ('apple', 'りんご'),
     ('beef', 'beef'),
     ('bread', 'bread'),
 
