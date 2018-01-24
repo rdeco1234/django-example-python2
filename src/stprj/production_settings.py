@@ -2,7 +2,7 @@
 
 from .settings import *
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = ["rdeco.sakura.ne.jp"]
 
