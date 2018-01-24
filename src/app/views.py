@@ -13,7 +13,7 @@ from app.forms import ContactForm
 #from app.models import Person
 from django.views.generic import FormView
 
-#def contact(request):
+def contact(request):
 #	if request.method == 'POST':
 #		form = MyForm(request.POST)
 #		text = 'tetete'
@@ -22,12 +22,11 @@ from django.views.generic import FormView
 #			message = 'OK'
 #		else:
 #			message = 'NG'
-#		d = {
-#			'form' : form,
-#			'message' : message,
-#			'text' : text,
-#		}
-#		return render(request,"response.html",d) 
+#	d = {
+#		'message' : message,
+#		'email' : email,
+#	}
+	return render(request,"response.html") 
 #		#return render(request,"test.html")
 # 
 #	else:
@@ -55,9 +54,10 @@ from django.views.generic import FormView
 class ContactView(FormView):
 	template_name = 'contact_form.html'
 	form_class = ContactForm
-	success_url = 'contact_response.html'
+	success_url = '/app/thanks/'
 
-	def form_valid(self, form):
-		form.send_mail()
+	def form_valid(self, form_class):
+		form_class.send_mail()
 		return super(ContactView, self).form_valid(form_class)
+
 
