@@ -87,7 +87,8 @@ class ContactView(FormView):
 #		return super(ContactView, self).form_valid(form_class)
 
 class NameView(FormView):
-	def get_name(request):
+	@classmethod
+	def get_name(cls, request):
 		name = 'init'
 		if request.method == 'POST':
 			form = NameForm(request.POST)
