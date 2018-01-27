@@ -2,7 +2,7 @@
 
 from django.conf.urls import include, url
 from app.views import contact
-from app.views import get_name
+from app.views.NameView import get_name
 #from app.views import PersonCreateView
 #from app.views import hello_template
 #from app.views import hello_forms2
