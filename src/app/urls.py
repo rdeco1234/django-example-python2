@@ -17,5 +17,5 @@ urlpatterns = [
 	url(r'^contact/$', ContactView.as_view(), name='ContactView'),
 	url(r'^contact2/$', ContactView.as_view(), name='ContactView'),
 	url(r'^thanks/$', get_name),
-	url(r'^your-name/$', NameView.get_name),
+	url(r'^your-name/$', NameView.get_name()),
 ]
