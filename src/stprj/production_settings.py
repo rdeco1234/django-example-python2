@@ -57,9 +57,9 @@ TEMPLATES = [
 
 
 LOGGING = {
-    'version': 1,   # これを肋年しないと跑られる
-    'formatters': { # 叫蜗フォ〖マットを矢机误妨及で回年する
-        'all': {    # 叫蜗フォ〖マットに`all`という叹涟をつける
+    'version': 1,
+    'formatters': {
+        'all': {
             'format': '\t'.join([
                 "[%(levelname)s]",
                 "asctime:%(asctime)s",
@@ -70,24 +70,29 @@ LOGGING = {
             ])
         },
     },
-    'handlers': {  # ログをどこに叫すかの肋年
-        'file': {  # どこに叫すかの肋年に叹涟をつける `file`という叹涟をつけている
-            'level': 'DEBUG',  # DEBUG笆惧のログを艰り胺うという罢蹋
-            'class': 'logging.FileHandler',  # ログを叫蜗するためのクラスを回年
-            'filename': os.path.join(BASE_DIR, 'django.log'),  # どこに叫すか
-            'formatter': 'all',  # どの叫蜗フォ〖マットで叫すかを叹涟で回年
-        },
-        'console': { # どこに叫すかの肋年をもう办つ、こちらの肋年には`console`という叹涟
+    'handlers': {
+        'file': {
             'level': 'DEBUG',
-            # こちらは筛洁叫蜗に叫してくれるクラスを回年
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'django.log'),
+            'formatter': 'all',
+        },
+        'console': {
+            'level': 'DEBUG',
             'class': 'logging.StreamHandler', 
             'formatter': 'all'
         },
     },
-    'loggers': {  # どんなloggerがあるかを肋年する
-        'command': {  # commandという叹涟のloggerを年盗
-            'handlers': ['file', 'console'],  # 黎揭のfile, consoleの肋年で叫蜗
+    'loggers': {
+        'command': {
+            'handlers': ['file', 'console'],
             'level': 'DEBUG',
         },
     },
 }
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'gragrapopbreaker@gmail.com'
+EMAIL_HOST_PASSWORD = '2娈甸殠瑾嶈銉椼儹銈汇偣瑷畾寰屻伀鐧鸿銇椼仧銈€儣銉儜銈广儻銉笺儔'
+EMAIL_USE_TLS = True

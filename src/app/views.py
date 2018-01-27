@@ -82,36 +82,32 @@ class ContactView(FormView):
 #	success_url = '/app/thanks/'
 
 	def form_valid(self, form_class):
+		pass
 #		form_class.send_mail()
 #		return super(ContactView, self).form_valid(form_class)
 
-#class NameView(FormView):
-def get_name(request):
-	name = 'init'
-    # if this is a POST request we need to process the form data
-	if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-		form = NameForm(request.POST)
-        # check whether it's valid:
-		if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-			#return HttpResponseRedirect('/app/thanks?name=ccc')
+class NameView(FormView):
+	def get_name(request):
+		name = 'init'
+		if request.method == 'POST':
+			form = NameForm(request.POST)
+			if form.is_valid():
+				if 'your_name' in request.POST:
+					postName = request.POST['your_name']
+				else:
+					postName = 'post_init'
 
-			if 'your_name' in request.POST:
-				postName = request.POST['your_name']
-			else:
-				postName = 'post_init'
+				return HttpResponseRedirect('/app/thanks?name=' + postName)
 
-			return HttpResponseRedirect('/app/thanks?name=' + postName)
-    # if a GET (or any other method) we'll create a blank form
-	else:
-		if 'name' in request.GET:
-			name = request.GET['name']
 		else:
-			name = 'get_init'
+			if 'name' in request.GET:
+				name = request.GET['name']
+			else:
+				name = 'get_init'
+			form = NameForm()
 
-	 	form = NameForm()
+		return render(request, 'name.html', {'form': form,'name':name})
 
-	return render(request, 'name.html', {'form': form,'name':name})
+	def form_valid(self, form):
+		form.send_mail()
+		return super(ContactView, self).form_valid(form)

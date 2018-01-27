@@ -39,7 +39,11 @@ class ContactForm(forms.Form):
 #        fields = ("name", "age")
 
 class NameForm(forms.Form):
-    your_name = forms.CharField(label='Your name', max_length=100)
+	your_name = forms.CharField(label='Your name', max_length=100)
 
+	def send_mail(self):
+		send_name = self.cleaned_data['your_name']
+		from_email = settings.EMAIL_HOST_USER
+		to = [settings.EMAIL_HOST_USER]
 
-
+		send_mail(send_name, from_email, to)
