@@ -2,7 +2,7 @@
 
 from django.conf.urls import include, url
 from app.views import contact
-from app.views.NameView import get_name
+from app.views import NameView
 #from app.views import PersonCreateView
 #from app.views import hello_template
 #from app.views import hello_forms2
@@ -17,5 +17,5 @@ urlpatterns = [
 	url(r'^contact/$', ContactView.as_view(), name='ContactView'),
 	url(r'^contact2/$', ContactView.as_view(), name='ContactView'),
 	url(r'^thanks/$', get_name),
-	url(r'^your-name/$', get_name),
+	url(r'^your-name/$', NameView.get_name),
 ]
