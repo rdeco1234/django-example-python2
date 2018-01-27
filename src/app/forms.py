@@ -5,10 +5,12 @@ from django.core.mail import send_mail
 from django.conf import settings
 #from app.models import Person
 
-#class MyForm(forms.Form):
-#	name = forms.CharField()
-#	email = forms.EmailField()
-#	text = forms.CharField(widget=forms.Textarea)
+class MyForm(forms.Form):
+
+	def vote(self):
+		assert(self.is_valid())
+		#name = self.cleaned_data['name']
+		#name.save()
 
 class ContactForm(forms.Form):
 	name = forms.CharField()
@@ -35,3 +37,9 @@ class ContactForm(forms.Form):
 #    class Meta:
 #        model = Person
 #        fields = ("name", "age")
+
+class NameForm(forms.Form):
+    your_name = forms.CharField(label='Your name', max_length=100)
+
+
+
