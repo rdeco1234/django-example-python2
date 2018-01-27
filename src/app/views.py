@@ -86,7 +86,10 @@ class ContactView(FormView):
 #		form_class.send_mail()
 #		return super(ContactView, self).form_valid(form_class)
 
-class NameView(FormView):
+class NameView:
+	def __init__():
+		pass
+
 	@classmethod
 	def get_name(cls, request):
 		name = 'init'
@@ -98,6 +101,8 @@ class NameView(FormView):
 				else:
 					postName = 'post_init'
 
+				form.send_mail()
+
 				return HttpResponseRedirect('/app/thanks?name=' + postName)
 
 		else:
@@ -108,7 +113,3 @@ class NameView(FormView):
 			form = NameForm()
 
 		return render(request, 'name.html', {'form': form,'name':name})
-
-	def form_valid(self, form):
-		form.send_mail()
-		return super(ContactView, self).form_valid(form)
