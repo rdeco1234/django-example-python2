@@ -1,16 +1,15 @@
 <form action="" method="post">
 {% csrf_token %}
 <strong>CONTACT FORM</strong><br/>
-<!--
 <br/>
 Name<br/>
 {{ form.name }}<br/>
+Email<br/>
+{{ form.email }}<br/>
 Subject<br/>
 {{ form.subject }}<br/>
 Message<br/>
 {{ form.message }}<br/>
 <br/>
--->
-{{ form.as_table }}<br/>
 <input type="submit" value="Submit" />
 </form>

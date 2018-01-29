@@ -91,7 +91,7 @@ class ContactView:
 	def get_name(cls, request):
 		name = 'init'
 		if request.method == 'POST':
-			form = ContactForm()
+			form = ContactForm(request.POST)
 			if form.is_valid():
 				form.send_mail(request.POST)
 				if 'name' in request.POST:
