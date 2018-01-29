@@ -1,6 +1,16 @@
-<form action="/app/your-name/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    {{ name }}
-    <input type="submit" value="Submit" />
+<form action="" method="post">
+{% csrf_token %}
+<strong>CONTACT FORM</strong><br/>
+<!--
+<br/>
+Name<br/>
+{{ form.name }}<br/>
+Subject<br/>
+{{ form.subject }}<br/>
+Message<br/>
+{{ form.message }}<br/>
+<br/>
+-->
+{{ form.as_table }}<br/>
+<input type="submit" value="Submit" />
 </form>

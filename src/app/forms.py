@@ -12,13 +12,13 @@ class MyForm(forms.Form):
 		#name = self.cleaned_data['name']
 		#name.save()
 
-class ContactForm(forms.Form):
-	name = forms.CharField()
-	email = forms.EmailField()
-	message = forms.CharField(widget=forms.Textarea)
-
-	def send_mail(self):
-		pass
+#class ContactForm(forms.Form):
+#	name = forms.CharField()
+#	email = forms.EmailField()
+#	message = forms.CharField(widget=forms.Textarea)
+#
+#	def send_mail(self):
+#		pass
 #		subject = self.cleaned_data['name']
 #		message = self.cleaned_data['message']
 #		from_email = settings.EMAIL_HOST_USER
@@ -38,18 +38,23 @@ class ContactForm(forms.Form):
 #        model = Person
 #        fields = ("name", "age")
 
-class NameForm(forms.Form):
-	your_name = forms.CharField(label='Your name', max_length=100)
-	your_name2 = forms.CharField(
-					label='Your name2',
-					widget=forms.TextInput(),
-					max_length=100
-					)
+class ContactForm(forms.Form):
+	name = forms.CharField(label='name', max_length=30)
+	email = forms.EmailField()
+	subject = forms.CharField(label='subject', max_length=100)
+	message = forms.CharField(
+					label='message',
+					widget=forms.Textarea,
+					max_length=400
+				)
 
 	def send_mail(self, data):
-		subject = "kenmei"
-		send_name = self.data['your_name']
+		subject = data['subject']
+		name = data['name']
+		message = data['message']
+		send_message = "name : "+ name + "\n"
+		send_message += "message : "+ message + "\n"
 		from_email = settings.EMAIL_HOST_USER
 		to = [settings.EMAIL_HOST_USER]
 
-		send_mail(subject, send_name, from_email, to)
+		send_mail(subject, send_message, from_email, to)
