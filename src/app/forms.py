@@ -40,10 +40,16 @@ class ContactForm(forms.Form):
 
 class NameForm(forms.Form):
 	your_name = forms.CharField(label='Your name', max_length=100)
+	your_name2 = forms.CharField(
+					label='Your name2',
+					widget=forms.TextInput(),
+					max_length=100
+					)
 
-	def send_mail(self):
-		send_name = self.cleaned_data['your_name']
+	def send_mail(self, data):
+		subject = "kenmei"
+		send_name = self.data['your_name']
 		from_email = settings.EMAIL_HOST_USER
 		to = [settings.EMAIL_HOST_USER]
 
-		send_mail(send_name, from_email, to)
+		send_mail(subject, send_name, from_email, to)

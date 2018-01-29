@@ -86,12 +86,13 @@ class ContactView(FormView):
 #		form_class.send_mail()
 #		return super(ContactView, self).form_valid(form_class)
 
-class NameView(FormView):
+class NameView:
 	@classmethod
 	def get_name(cls, request):
 		name = 'init'
 		if request.method == 'POST':
 			form = NameForm(request.POST)
+			form.send_mail(request.POST)
 			if form.is_valid():
 				if 'your_name' in request.POST:
 					postName = request.POST['your_name']
@@ -108,7 +109,3 @@ class NameView(FormView):
 			form = NameForm()
 
 		return render(request, 'name.html', {'form': form,'name':name})
-
-	def form_valid(self, form):
-		form.send_mail()
-		return super(ContactView, self).form_valid(form)

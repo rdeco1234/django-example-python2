@@ -94,5 +94,5 @@ LOGGING = {
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'gragrapopbreaker@gmail.com'
-EMAIL_HOST_PASSWORD = '2段階認証プロセス設定後に発行したアプリパスワード'
+EMAIL_HOST_PASSWORD = 'fodvqpkwcryxoufg'
 EMAIL_USE_TLS = True
