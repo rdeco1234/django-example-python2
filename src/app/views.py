@@ -87,6 +87,7 @@ class ContactView(FormView):
 #		return super(ContactView, self).form_valid(form_class)
 
 class NameView:
+
 	@classmethod
 	def get_name(cls, request):
 		name = 'init'
@@ -98,6 +99,8 @@ class NameView:
 					postName = request.POST['your_name']
 				else:
 					postName = 'post_init'
+
+				form.send_mail()
 
 				return HttpResponseRedirect('/app/thanks?name=' + postName)
 
