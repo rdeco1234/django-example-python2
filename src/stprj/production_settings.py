@@ -93,8 +93,10 @@ LOGGING = {
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'gragrapopbreaker@gmail.com'
-EMAIL_HOST_PASSWORD = 'fodvqpkwcryxoufg'
+#EMAIL_HOST_USER = 'gragrapopbreaker@gmail.com'
+#EMAIL_HOST_PASSWORD = 'fodvqpkwcryxoufg'
+EMAIL_HOST_USER = 'rdeco1234.contact@gmail.com'
+EMAIL_HOST_PASSWORD = 'bbppnmhigiafonqj'
 EMAIL_USE_TLS = True
 
 TIME_ZONE = 'Asia/Tokyo'
