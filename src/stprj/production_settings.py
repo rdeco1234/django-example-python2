@@ -96,3 +96,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'gragrapopbreaker@gmail.com'
 EMAIL_HOST_PASSWORD = 'fodvqpkwcryxoufg'
 EMAIL_USE_TLS = True
+
+TIME_ZONE = 'Asia/Tokyo'
+USE_TZ = False
