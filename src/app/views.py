@@ -8,7 +8,8 @@ from django.http import HttpResponse
 #from app.forms import MyForm
 #from app.forms import PersonForm
 #from app.forms import SampleForm
-from app.forms import ContactForm
+#from app.forms import ContactForm
+from app.models import ContactForm
 #from django.views.generic import CreateView, UpdateView
 #from app.models import Person
 from django.views.generic import FormView
@@ -89,11 +90,20 @@ class ContactView:
 
 	@classmethod
 	def get_name(cls, request):
-		name = 'init'
+		# random TODO
+		import random
+		num = random.randrange(10**3,10**4)
+		
+		columns_dict = request.POST.copy()
+		if not columns_dict.__contains__('id'):
+			columns_dict.__setitem__('id', num)
+		#	columns_dict.__setitem__('datetime', None)
+			
 		if request.method == 'POST':
 			form = ContactForm(request.POST)
 			if form.is_valid():
-				form.send_mail(request.POST)
+				form.send_mail()
+				#form.save()
 				if 'name' in request.POST:
 					postName = request.POST['name']
 				else:
@@ -102,7 +112,8 @@ class ContactView:
 
 				return HttpResponseRedirect('/app/thanks?name=' + postName)
 			else:
-				return render(request, 'response.html')
+				#return render(request, 'response.html')
+				return render(request, 'error.html',{'debug':columns_dict})
 
 		else:
 			if 'name' in request.GET:

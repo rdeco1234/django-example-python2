@@ -5,10 +5,10 @@ from django.core.mail import send_mail
 from django.conf import settings
 #from app.models import Person
 
-class MyForm(forms.Form):
-
-	def vote(self):
-		assert(self.is_valid())
+#class MyForm(forms.Form):
+#
+#	def vote(self):
+#		assert(self.is_valid())
 		#name = self.cleaned_data['name']
 		#name.save()
 
@@ -48,12 +48,11 @@ class ContactForm(forms.Form):
 					max_length=400
 				)
 
-	def send_mail(self, data):
-		subject = data['subject']
-		name = data['name']
-		message = data['message']
-		send_message = "name : "+ name + "\n"
-		send_message += "message : "+ message + "\n"
+	def send_mail(self):
+		send_message = "name : "+ self.name + "\n"
+		send_message += "email : "+ self.email + "\n"
+		send_message += "message : "+ self.message + "\n"
+		send_message += "datetime : "+ self.datetime + "\n"
 		from_email = settings.EMAIL_HOST_USER
 		to = [settings.EMAIL_HOST_USER]
 
