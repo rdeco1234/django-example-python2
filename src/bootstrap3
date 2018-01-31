@@ -1,0 +1,17 @@
+[master cb7685b] django-
+ Committer: User Rdeco <rdeco@www3712.sakura.ne.jp>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 8 files changed, 28 insertions(+), 6 deletions(-)
+ create mode 100644 src/bootstrap3
+ rewrite src/stprj/production_settings.pyc (73%)
