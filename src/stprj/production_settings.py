@@ -29,13 +29,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'bootstrap3'
 )
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/rdeco/www/rdeco.sakura.ne.jp/htdocs/static'
 
 #TEMPLATE_DIR = '/home/rdeco/www/rdeco.sakura.ne.jp/htdocs/rdeco_hp'
-TEMPLATE_DIR = '/home/rdeco/www/rdeco.sakura.ne.jp/htdocs'
 
 TEMPLATES = [
     {

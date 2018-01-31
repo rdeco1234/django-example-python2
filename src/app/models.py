@@ -26,6 +26,10 @@ class ContactForm(forms.ModelForm):
 			'message',
 			'datetime',
 		]
+		widgets = {
+			'id' : forms.HiddenInput(),
+			'datetime' : forms.HiddenInput()
+		}
 
 	def send_mail(self):
 #		name = self.data['name']

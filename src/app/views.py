@@ -112,8 +112,11 @@ class ContactView:
 				# datetime
 				now = datetime.now()
 				columns_dict.__setitem__('datetime', now)
-			
+
+			# create form
 			form = ContactForm(columns_dict)
+ #			for 'id' in form.fields:
+#				form.fields['id'].widget = forms.HiddenInput()
 			if form.is_valid():
 				form.send_mail()
 				form.save()
@@ -131,6 +134,7 @@ class ContactView:
 			return render(request, 'name.html', {'form': form})
 
 		return render(request, 'error.html')
+
 
 	@classmethod
 	def _check_count_per_day(cls, email):
