@@ -104,7 +104,7 @@ class ContactView:
 				return render(request, 'error.html',{'message':err_message})
 
 			# id and datetime setting
-			if not columns_dict.__contains__('id'):
+			if not columns_dict.__getitem__('id'):
 				# random TODO
 				import random
 				num = random.randrange(10**3,10**4)
@@ -115,7 +115,7 @@ class ContactView:
 
 			# create form
 			form = ContactForm(columns_dict)
- #			for 'id' in form.fields:
+#			for 'id' in form.fields:
 #				form.fields['id'].widget = forms.HiddenInput()
 			if form.is_valid():
 				form.send_mail()
@@ -123,7 +123,7 @@ class ContactView:
 				return render(request, 'response.html')
 
 			else:
-				return render(request, 'error.html',{'debug':columns_dict})
+				return render(request, 'error.html',{'debug':columns_dict,'message':"invalid_form"})
 
 		else:
 			#if 'name' in request.GET:
@@ -133,7 +133,7 @@ class ContactView:
 			form = ContactForm()
 			return render(request, 'name.html', {'form': form})
 
-		return render(request, 'error.html')
+		return render(request, 'error.html',{'message':"internal error"})
 
 
 	@classmethod

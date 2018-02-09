@@ -32,8 +32,8 @@ INSTALLED_APPS = (
 	'bootstrap3'
 )
 
-STATIC_URL = '/static/'
-STATIC_ROOT = '/home/rdeco/www/rdeco.sakura.ne.jp/htdocs/static'
+STATIC_URL = '/rdeco_hp/static/'
+STATIC_ROOT = '/home/rdeco/www/rdeco.sakura.ne.jp/htdocs/rdeco_hp/static'
 
 #TEMPLATE_DIR = '/home/rdeco/www/rdeco.sakura.ne.jp/htdocs/rdeco_hp'
 
