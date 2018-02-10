@@ -21,6 +21,7 @@ from datetime import date
 
 
 class ContactView:
+	_env = {}
 
 	@classmethod
 	def get_name(cls, request):
@@ -28,8 +29,9 @@ class ContactView:
 		if request.method == 'POST':
 			columns_dict = request.POST.copy()
 
-			# check contact count
 			email = columns_dict.__getitem__('email')
+			name = columns_dict.__getitem__('name')
+			# check contact count
 			ret = cls._check_count_per_day(email)
 			if not ret["status"]:
 				err_message = ret["message"]
@@ -52,7 +54,7 @@ class ContactView:
 			if form.is_valid():
 				form.send_mail()
 				form.save()
-				return render(request, 'response.html')
+				return render(request, 'response.html',{"env":cls._env})
 
 			else:
 				return render(request, 'error.html',{'debug':columns_dict,'message':"invalid_form"})
