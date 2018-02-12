@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from .models import Contact
+from app.models.models import Contact
 
 
 class ContactAdmin(admin.ModelAdmin):
