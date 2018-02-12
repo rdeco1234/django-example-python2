@@ -4,8 +4,8 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render 
 from django.http import HttpResponse
-from app.models.models import ContactForm
-from app.models.models import Contact
+from app.forms.contact_forms import ContactForm
+from app.models.contact_models import Contact
 from django.views.generic import FormView
 from django.http import HttpResponseRedirect
 from datetime import datetime
