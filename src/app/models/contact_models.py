@@ -13,3 +13,16 @@ class Contact(models.Model):
 	message = models.TextField()
 	datetime = models.DateTimeField()
 
+
+	def get_email_filtered_by_day(self, email, date_):
+		year = date_.year
+		month = date_.month
+		day = date_.day
+
+		_q = Contact.objects.filter(email__exact=email)
+		_q = _q.filter(datetime__year=year)
+		_q = _q.filter(datetime__month=month)
+		query = _q.filter(datetime__day=day)
+
+		return query
+

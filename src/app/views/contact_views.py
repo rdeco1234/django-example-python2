@@ -13,10 +13,13 @@ from datetime import date
 
 
 class ContactView:
-	_env = {}
 
-	@classmethod
-	def get_name(cls, request):
+	def __init__(self):
+		self._env = {}
+		self._contact_models = Contact()
+
+	#@classmethod
+	def get_name(self, request):
 
 		if request.method == 'POST':
 			columns_dict = request.POST.copy()
@@ -24,7 +27,7 @@ class ContactView:
 			email = columns_dict.__getitem__('email')
 			name = columns_dict.__getitem__('name')
 			# check contact count
-			ret = cls._check_count_per_day(email)
+			ret = self._check_count_per_day(email)
 			if not ret["status"]:
 				err_message = ret["message"]
 				return render(request, 'error.html',{'message':err_message})
@@ -41,43 +44,30 @@ class ContactView:
 
 			# create form
 			form = ContactForm(columns_dict)
-#			for 'id' in form.fields:
-#				form.fields['id'].widget = forms.HiddenInput()
 			if form.is_valid():
 				form.send_mail()
 				form.save()
-				return render(request, 'response.html',{"env":cls._env})
+				return render(request, 'response.html',{"env":self._env})
 
 			else:
 				return render(request, 'error.html',{'debug':columns_dict,'message':"invalid_form"})
 
 		else:
-			#if 'name' in request.GET:
-			#	name = request.GET['name']
-			#	return render(request, 'response.html')
-			#else:
 			form = ContactForm()
 			return render(request, 'name.html', {'form': form})
 
 		return render(request, 'error.html',{'message':"internal error"})
 
 
-	@classmethod
-	def _check_count_per_day(cls, email):
+	#@classmethod
+	def _check_count_per_day(self, email):
+
 		ret = {"status":True, "message":""}
 
 		today = date.today()
+		records = self._contact_models.get_email_filtered_by_day(email, today)
 
-		year = today.year
-		month = today.month
-		day = today.day
-
-		query = Contact.objects.filter(email__exact=email)
-		query = query.filter(datetime__year=year)
-		query = query.filter(datetime__month=month)
-		query = query.filter(datetime__day=day)
-
-		if len(query) > 10:
+		if len(records) > 10:
 			#TODO error process
 			ret["status"] = False
 			ret["message"] = "over 10 contact"
