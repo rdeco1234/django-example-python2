@@ -15,17 +15,20 @@ from datetime import date
 class ContactView:
 
 	def __init__(self):
+		# Response information
 		self._env = {}
+		# DB instanse
 		self._contact_models = Contact()
 
-	#@classmethod
 	def get_name(self, request):
 
 		if request.method == 'POST':
 			columns_dict = request.POST.copy()
 
+			#POST information
 			email = columns_dict.__getitem__('email')
 			name = columns_dict.__getitem__('name')
+
 			# check contact count
 			ret = self._check_count_per_day(email)
 			if not ret["status"]:
@@ -46,7 +49,9 @@ class ContactView:
 			form = ContactForm(columns_dict)
 			if form.is_valid():
 				form.send_mail()
+				# DB save
 				form.save()
+				self._env["name"] =  name
 				return render(request, 'response.html',{"env":self._env})
 
 			else:
@@ -54,7 +59,7 @@ class ContactView:
 
 		else:
 			form = ContactForm()
-			return render(request, 'name.html', {'form': form})
+			return render(request, 'contact.html', {'form': form})
 
 		return render(request, 'error.html',{'message':"internal error"})
 
