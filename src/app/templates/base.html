@@ -1,11 +1,44 @@
 {% load i18n static %}
-<!DOCTYPE html>{% get_current_language as LANGUAGE_CODE %}
-<html lang="{{ LANGUAGE_CODE|default:"en-us" }}">
+<html>
+{% get_current_language as LANGUAGE_CODE %}
+
+<!-- ******************************** header ************************************ -->
+
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PV97DXP');</script>
+<!-- End Google Tag Manager -->
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-<link rel="stylesheet" href="{% static 'css/rdeco.css' %}">
+<meta name="keywords" content="フリーランス">
+<meta name="description" content="フリーランスになりたい方必見、高単価案件紹介中">
+<meta http-equiv="content-language" content="ja">
+<meta name="viewport" content="width=device-width initial-scale=1.0 user-scalable=yes">
+<link rel="icon" href="http://rdeco.sakura.ne.jp/rdeco_hp/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="http://rdeco.sakura.ne.jp/rdeco_hp/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://rdeco.sakura.ne.jp/rdeco_hp/static/css/rdeco.css">
+<link href="http://rdeco.sakura.ne.jp/rdeco_hp/css/top_design.css" rel="stylesheet" type="text/css" media="all" >
+<script src="http://rdeco.sakura.ne.jp/rdeco_hp/static/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    $("#header").load("/rdeco.sakura.ne.jp/htdocs/rdeco_hp/header.html");
+    $("#footer").load("/rdeco.sakura.ne.jp/htdocs/rdeco_hp/footer.html");
+})
+</script>
+</head>
+
+<!--***********
+Header
+***************-->
+<div id="header"></div>
+
+<!-- *********   ！！！！！！！！！！！！！！！！！！！！！！！！ 　*********** -->
+<!-- *********   ！！！！！！！！ここから下を編集！！！！！！！！ 　*********** -->
+<!-- *********   ！！！！！！！！！！！！！！！！！！！！！！！！ 　*********** -->
 {% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -16,5 +49,18 @@
   </div>
 <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
 {% block extra_js %}{% endblock %}
+
+<!-- *********   ！！！！！！！！！！！！！！！！！！！！！！！！ 　*********** -->
+<!-- *********   ！！！！！！！！ここから上を編集！！！！！！！！ 　*********** -->
+<!-- *********   ！！！！！！！！！！！！！！！！！！！！！！！！ 　*********** -->
+
+<!--***********
+Footer
+***************-->
+<div id="footer"></div>
+
+</div>
+</div>
+
 </body>
 </html>
