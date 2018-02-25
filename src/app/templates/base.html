@@ -58,13 +58,13 @@ Header
 <!-- *********   ！！！！！！！！！！！！！！！！！！！！！！！！ 　*********** -->
 {% block extra_css %}{% endblock %}
 </head>
-<body>
-<div class="container">
+<div>
+  <div class="container">
     {% block content %}
       {{ content }}
     {% endblock %}
-</div>
-<script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+  </div>
+<!--<script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>-->
 {% block extra_js %}{% endblock %}
 
 <!-- *********   ！！！！！！！！！！！！！！！！！！！！！！！！ 　*********** -->
